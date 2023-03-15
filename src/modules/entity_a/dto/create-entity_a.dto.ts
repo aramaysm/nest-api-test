@@ -7,8 +7,10 @@ export class CreateEntityA_Dto {
     entityAData1: string;
 
     @IsNotEmpty()
+    @IsString() 
     entityAData2:string;
 
     @IsNotEmpty()
+    @IsString() 
     entityAData3:string;
 }

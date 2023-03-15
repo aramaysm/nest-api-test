@@ -5,7 +5,6 @@ import { Crud, CrudController } from "@nestjsx/crud";
 import { EntityA } from './entities/entity_a.entity';
 
 
-
 @Crud({
   model: {
     type: EntityA,
@@ -21,7 +20,7 @@ import { EntityA } from './entities/entity_a.entity';
         order: "DESC",
       },
     ],
-    persist: ["createdAt"],
+    persist: ["createdAt","updatedAt"],
     filter:{
       isActive: {
         $ne: false

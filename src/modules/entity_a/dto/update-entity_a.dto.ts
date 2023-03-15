@@ -1,7 +1,6 @@
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
+import { IsBoolean,  IsString } from "class-validator";
 
 export class UpdateEntityA_Dto {
-
     
     @IsString()    
     entityAData1: string;
