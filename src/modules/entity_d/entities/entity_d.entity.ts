@@ -60,6 +60,6 @@ export class EntityD extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @ManyToMany(() => EntityC, (entity_c) => entity_c.list_d)
+  @ManyToMany(() => EntityC, (entity_c) => entity_c.list_d,{onUpdate:"RESTRICT",onDelete:"CASCADE"})
   list_c: EntityC[];
 }

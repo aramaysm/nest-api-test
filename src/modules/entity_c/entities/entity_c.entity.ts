@@ -78,7 +78,8 @@ export class EntityC extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @ManyToMany(() => EntityD, (entity_d) => entity_d.list_c)
-  @JoinTable()
+  @ManyToMany(() => EntityD, (entity_d) => entity_d.list_c,
+  {onUpdate:"RESTRICT",onDelete:"CASCADE"})
+  @JoinTable({name: "entities_c_d_relationship"})
   list_d: EntityD[];
 }

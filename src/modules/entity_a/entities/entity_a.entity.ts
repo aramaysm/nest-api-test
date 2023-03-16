@@ -60,6 +60,7 @@ export class EntityA extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @OneToMany(() => EntityB, (entity_b) => entity_b.id)
+  @OneToMany(() => EntityB, (entity_b) => entity_b.id,
+  {onUpdate:"RESTRICT",onDelete:"CASCADE"})
   listEntityB: EntityB[];
 }
