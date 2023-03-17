@@ -10,24 +10,5 @@ export class EntityAService extends TypeOrmCrudService<EntityA> {
     super(repo);
   }
 
-  create(createEntityADto: CreateEntityA_Dto) {
-    return 'This action adds a new entityA';
-  }
 
-  findAll() {
-    return `This action returns all entityA`;
-  }
-/*
-  findOne(id: number) {
-    return `This action returns a #${id} entityA`;
-  }
-  */
-
-  update(id: number, updateEntityADto: UpdateEntityA_Dto) {
-    return `This action updates a #${id} entityA`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} entityA`;
-  }
 }

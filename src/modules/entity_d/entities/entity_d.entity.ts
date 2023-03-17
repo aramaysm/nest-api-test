@@ -1,14 +1,16 @@
-import { EntityC } from 'src/modules/entity_c/entities/entity_c.entity';
+
 import {
   BaseEntity,
   Column,
   Entity,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CrudValidationGroups } from '@nestjsx/crud';
 import { IsNotEmpty, IsOptional } from 'class-validator';
+import { EntitiesCDRelation } from '../../../modules/entities_c_d_relation/entities/entities_c_d_relation.entity';
 
 const { CREATE, UPDATE } = CrudValidationGroups;
 
@@ -40,7 +42,7 @@ export class EntityD extends BaseEntity {
 
   @IsOptional({ groups: [UPDATE] })
   @IsNotEmpty({ groups: [CREATE] })
-  @Column({ type: 'varchar', length: 65, nullable: false, name: 'entity_d_field2' })
+  @Column({ type: 'varchar', length: 65, nullable: false, name: 'entity_d_field3' })
   entityDField3: string;
 
   @Column({
@@ -60,6 +62,8 @@ export class EntityD extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @ManyToMany(() => EntityC, (entity_c) => entity_c.list_d,{onUpdate:"RESTRICT",onDelete:"CASCADE"})
-  list_c: EntityC[];
+  @OneToMany(() => EntitiesCDRelation, (entity_cd) => entity_cd.id,
+  {onUpdate:"RESTRICT",onDelete:"CASCADE"})
+  entitiesCD: EntitiesCDRelation[];
+  
 }

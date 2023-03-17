@@ -13,19 +13,29 @@ import { EntityB } from './entities/entity_b.entity';
     create: CreateEntityB_Dto,
     update: UpdateEntityB_Dto,    
   },
+  
   query:{
     sort: [
       {
         field: "id",
-        order: "DESC",
+        order: "ASC",
       },
     ],
+    join:{
+
+      entity_a:{
+        allow:['entityAField1','entityAField2'],  //Se escogio al azar permitir solo esos dos fields, solo por demostrar conocimiento
+        eager: true,
+        required: true
+      }
+    },
     persist: ["createdAt","updatedAt"],
-    filter:{      
-      isActive: {
+    filter:{
+       isActive: {
         $ne: false
       }
-    }
+    },
+
   }
 })
 

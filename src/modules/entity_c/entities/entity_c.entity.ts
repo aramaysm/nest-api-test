@@ -13,6 +13,7 @@ import {
 } from 'typeorm';
 import { CrudValidationGroups } from '@nestjsx/crud';
 import { IsNotEmpty, IsOptional } from 'class-validator';
+import { EntitiesCDRelation } from '../../../modules/entities_c_d_relation/entities/entities_c_d_relation.entity';
 
 const { CREATE, UPDATE } = CrudValidationGroups;
 
@@ -78,8 +79,8 @@ export class EntityC extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @ManyToMany(() => EntityD, (entity_d) => entity_d.list_c,
+  @OneToMany(() => EntitiesCDRelation, (entity_cd) => entity_cd.id,
   {onUpdate:"RESTRICT",onDelete:"CASCADE"})
-  @JoinTable({name: "entities_c_d_relationship"})
-  list_d: EntityD[];
+  entitiesCD: EntitiesCDRelation[];
+  
 }

@@ -60,6 +60,6 @@ export class EntityB extends BaseEntity {
   @Column({ type: 'bool', default: true })
   isActive: boolean;
 
-  @ManyToOne(() => EntityA, (entity_a) => entity_a.listEntityB)
+  @ManyToOne(() => EntityA, (entity_a) => entity_a.entitiesB)
   entity_a: EntityA;
 }

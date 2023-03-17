@@ -30,7 +30,7 @@ export class EntityA extends BaseEntity {
 
   @IsOptional({ groups: [UPDATE] })
   @IsNotEmpty({ groups: [CREATE] })
-  @Column({ type: 'varchar', length: 65, nullable: false, name:"entity_a_field1" })
+  @Column({ type: 'varchar', length: 65, nullable: false, name:'entity_a_field1' })
   entityAField1: string;
 
   @IsOptional({ groups: [UPDATE] })
@@ -62,5 +62,5 @@ export class EntityA extends BaseEntity {
 
   @OneToMany(() => EntityB, (entity_b) => entity_b.id,
   {onUpdate:"RESTRICT",onDelete:"CASCADE"})
-  listEntityB: EntityB[];
+  entitiesB: EntityB[];
 }

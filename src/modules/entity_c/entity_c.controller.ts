@@ -34,7 +34,6 @@ export class EntityCController implements CrudController<EntityC>  {
   constructor(public service: EntityCService) {
 
 
-    
 
   }
 }

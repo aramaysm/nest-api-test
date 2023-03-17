@@ -1,25 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { CreateEntityD_Dto, UpdateEntityD_Dto } from './dto/';
+import { EntityD } from './entities/entity_d.entity';
 
 @Injectable()
-export class EntityDService {
-  create(createEntityDDto: CreateEntityD_Dto) {
-    return 'This action adds a new entityD';
+export class EntityDService extends TypeOrmCrudService<EntityD> {
+  constructor(@InjectRepository(EntityD) repo) {
+    super(repo);
   }
-
-  findAll() {
-    return `This action returns all entityD`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} entityD`;
-  }
-
-  update(id: number, updateEntityDDto: UpdateEntityD_Dto) {
-    return `This action updates a #${id} entityD`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} entityD`;
-  }
+ 
 }
